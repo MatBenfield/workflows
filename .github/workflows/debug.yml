@@ -1,0 +1,11 @@
+---
+name: Debug
+on:
+  workflow_call:
+  push:
+
+jobs:
+  print-context:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: crazy-max/ghaction-dump-context@v1.2.1
