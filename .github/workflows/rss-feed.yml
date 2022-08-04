@@ -1,0 +1,22 @@
+---
+name: RSS Runner
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  OnePassword:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: guilhem/rss-issues-action@0.5.2
+        continue-on-error: true
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          feed: "https://1password.statuspage.io/history.atom"
+          prefix: "[1Password]"
+          dry-run: "false"
+          lastTime: "24h"
+          labels: "1Password"

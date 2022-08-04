@@ -1,8 +1,9 @@
 ---
 name: Debug
+
 on:
+  workflow_dispatch:
   workflow_call:
-  push:
 
 jobs:
   print-context:
