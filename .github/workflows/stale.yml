@@ -1,0 +1,23 @@
+---
+name: Mark stale issues and pull requests
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  # schedule:
+  # - cron: '18 18 * * *'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/stale@v5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: "Marking this issue as stale"
+          stale-pr-message: "Marking this pull request as stale"
+          stale-issue-label: "no-issue-activity"
+          stale-pr-label: "no-pr-activity"
