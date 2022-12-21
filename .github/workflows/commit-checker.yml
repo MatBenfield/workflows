@@ -29,7 +29,7 @@ jobs:
         uses: tim-actions/commit-message-checker-with-regex@v0.3.1
         with:
           commits: ${{ steps.get-pr-commits.outputs.commits }}
-          pattern: '^(org\-\d+|NO_TICKET|Chore)'
+          pattern: '^(org\-\d+|NO_TICKET|Bump|Chore)'
           error: Commit must start with Jira key org-xxx, no ticket
           one_pass_all_pass: 'true'
           flags: gmi
